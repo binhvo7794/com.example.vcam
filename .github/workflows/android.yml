@@ -36,7 +36,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: StealthVCamAPK
-          path: app/build/outputs/apk/release/app-release.apk
+          path: app/build/outputs/apk/release/app-release*.apk
           if-no-files-found: error  # Optional, fail if file not found
           compression-level: 6      # Optional, control zip compression
           overwrite: true           # Important for v4
