@@ -30,7 +30,7 @@ public class VideoToFrames implements Runnable {
     private static final int COLOR_FormatNV21 = 2;
 
 
-    private final int decodeColorFormat = ImageFormat.YUV_420_888; // 0x21
+    private final int decodeColorFormat = MediaCodecInfo.CodecCapabilities.COLOR_FormatYUV420Planar;
     private LinkedBlockingQueue<byte[]> mQueue;
     private OutputImageFormat outputImageFormat;
     private boolean stopDecode = false;
@@ -111,7 +111,7 @@ public class VideoToFrames implements Runnable {
             showSupportedColorFormat(decoder.getCodecInfo().getCapabilitiesForType(mime));
             if (isColorFormatSupported(decodeColorFormat, decoder.getCodecInfo().getCapabilitiesForType(mime))) {
                 mediaFormat.setInteger(MediaFormat.KEY_COLOR_FORMAT, decodeColorFormat);
-                XposedBridge.log("【VCAM】【decoder】set decode color format to type " + decodeColorFormat);
+                XposedBridge.log("【VCAM】【binhdz】set decode color format to type " + decodeColorFormat);
             } else {
                 Log.i(TAG, "unable to set decode color format, color format type " + decodeColorFormat + " not supported");
                 XposedBridge.log("【VCAM】【decoder】unable to set decode color format, color format type " + decodeColorFormat + " not supported");
