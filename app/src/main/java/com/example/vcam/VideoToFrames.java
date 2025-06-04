@@ -30,8 +30,7 @@ public class VideoToFrames implements Runnable {
     private static final int COLOR_FormatNV21 = 2;
 
 
-    private final int decodeColorFormat = MediaCodecInfo.CodecCapabilities.COLOR_FormatYUV420Flexible;
-
+    private final int decodeColorFormat = ImageFormat.YUV_420_888; // 0x21
     private LinkedBlockingQueue<byte[]> mQueue;
     private OutputImageFormat outputImageFormat;
     private boolean stopDecode = false;
