@@ -1,8 +1,6 @@
 
 package com.example.vcam;
 
-import android.media.ImageFormat;
-
 import java.lang.reflect.Constructor;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
@@ -29,7 +27,7 @@ public class ImageReaderFormatHook implements IXposedHookLoadPackage {
                     @Override
                     protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
                         int originalFormat = (int) param.args[2];
-                        if (originalFormat == ImageFormat.YUV_420_888) {
+                        if (originalFormat == 0x21) {
                             param.args[2] = 0x7fa30c04; // ép format về vendor-private format mà fake camera đang dùng
                             XposedBridge.log("【VCAM】【hook】ép ImageReader format từ 0x21 thành 0x7fa30c04");
                         }
