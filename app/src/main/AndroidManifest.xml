@@ -32,6 +32,9 @@
         <meta-data
             android:name="xposedminversion"
             android:value="51" />
+        <meta-data
+            android:name="com.example.vcam.ImageReaderFormatHook"
+            android:value="xposedmodule" />
     </application>
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
